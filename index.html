@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Frontend Mentor | Advice generator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+
+    <main>
+
+      <article class="bg-darkBlue md:mx-auto md:max-w-xl pt-[130px] mx-auto ">
+        <div class="flex justify-center items-center pb-[250px]">
+          <div class="bg-darkGrayishBlue flex flex-col justify-center items-center w-[360px]  md:w-[600px]  pt-[40px] px-[20px] rounded-2xl mt-[80px]">
+            <h1
+              class="text-neonGreen pb-[25px] uppercase font-Manrope" id="advice-id"><!-- #Advice ID goes here -->
+            </h1>
+            <p
+              class="pb-[40px] font-Manrope text-[28px] text-center text-lightCyan" id="advice-text"><!-- "Advice text goes here" -->
+            </p>
+            <img src="/images/pattern-divider-desktop.svg" class="hidden md:block  pb-[30px]" alt="divider">
+            <img src="/images/pattern-divider-mobile.svg" alt="divider" class="block md:hidden pb-[30px]">
+
+            <button class="-mb-[25px] bg-neonGreen p-4 rounded-full hover:cursor-pointer" id="get-advice">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" fill="#202733"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </article>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.      Coded by
+        <a href="#">Stephanie Udemezue</a>.
+      </div>
+
+
+    </main>
+
+    <!-- Advice #Advice ID goes here -->
+
+    <!-- "Advice text goes here" -->
+
+    <script src="/index.js"></script>
+  </body>
+</html>
