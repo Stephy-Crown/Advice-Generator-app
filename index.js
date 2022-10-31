@@ -59,46 +59,110 @@
 // FETCH API method
 
 // ONLOAD CALL
-const getAdvice = function () {
-  fetch('https://api.adviceslip.com/advice',).then((response) => response.json()).then(function (resData) {
-    const data = resData.slip;
-    let advice = `"${
-      data.advice
-    }"`;
-    document.getElementById('advice-text').innerHTML = advice;
+// const getAdvice = function () {
+// fetch('https://api.adviceslip.com/advice',).then((response) => response.json()).then(function (resObj) {
+//     const data = resObj.slip;
+//     let advice = `"${
+//       data.advice
+//     }"`;
+//     document.getElementById('advice-text').innerHTML = advice;
 
-    let id = `ADVICE  #${
-      data.id
-    }`;
-    document.getElementById('advice-id').innerHTML = id
-  });
+//     let id = `ADVICE  #${
+//       data.id
+//     }`;
+//     document.getElementById('advice-id').innerHTML = id
+// });
 
-}
-getAdvice();
+// }
+// getAdvice();
 
 // ADD EVENT LISTENER TO BUTTON
 
+// Grab the element you are want to add event to
+// const btn = document.getElementById('get-advice');
+// Add event listener to the elememt
+// btn.addEventListener('click', adviceGetter)
+
+// function reference(Event handler fn)
+// function adviceGetter() { // the first .then() handler gets the handles the initial promise object, but in order to get the response data which is  JSON we have to use response.json():; this response.json() also returns  a promise which gives our response data; so we attach another .then() hnadler to be able toi get the actual data
+// fetch('https://api.adviceslip.com/advice',).then((response) => response.json()).then((resData) => {
+//     const data = resData.slip
+//     let advice = `"${
+//       data.advice
+//     }"`;
+//     document.getElementById('advice-text').innerHTML = advice;
+
+
+//     let id = `ADVICE  #${
+//       data.id
+
+//     }`;
+//     document.getElementById('advice-id').innerHTML = id;
+
+// })
+
+// }
+
+
+// ASYNC AWAIT  API CALL ES7(ES2016)
+// ONLOAD event
+
+
+const getAdvice = async function () { // Adding async in front of the fn makes the fn return a promise when we console log the fn, so to handle the promise we use .then(), but here we use await
+  const response = await fetch('https://api.adviceslip.com/advice');
+
+  // we get the response object when we handle the promise
+  // console.log(response)
+
+  // to get the actual data object from the object we use another await
+  let resObj = await response.json();
+  // gives the actual object of the data
+  // console.log(resObj);
+  data = resObj.slip;
+  let advice = `"${
+    data.advice
+  }"`;
+  document.getElementById('advice-text').innerHTML = advice;
+
+  let id = `ADVICE  #${
+    data.id
+  }`;
+  document.getElementById('advice-id').innerHTML = id
+
+
+}
+// fn returns a promise becoz of async
+// console.log(getAdvice());
+getAdvice();
+
+
+// ATTACH BTN HANDLER EVENT
 // Grab the element you are want to add event to
 const btn = document.getElementById('get-advice');
 // Add event listener to the elememt
 btn.addEventListener('click', adviceGetter)
 
 // function reference(Event handler fn)
-function adviceGetter() { // the first .then() handler gets the handles the initial promise object, but in order to get the response data which is  JSON we have to use response.json():; this response.json() also returns  a promise which gives our response data; so we attach another .then() hnadler to be able toi get the actual data
-  fetch('https://api.adviceslip.com/advice',).then((response) => response.json()).then((resData) => {
-    const data = resData.slip
-    let advice = `"${
-      data.advice
-    }"`;
-    document.getElementById('advice-text').innerHTML = advice;
+async function adviceGetter() {
+  const response = await fetch('https://api.adviceslip.com/advice');
 
+  // we get the response object when we handle the promise
+  // console.log(response)
 
-    let id = `ADVICE  #${
-      data.id
+  // to get the actual data object from the object we use another await
+  let resObj = await response.json();
+  // gives the actual object of the data
+  // console.log(resObj);
+  data = resObj.slip;
+  let advice = `"${
+    data.advice
+  }"`;
+  document.getElementById('advice-text').innerHTML = advice;
 
-    }`;
-    document.getElementById('advice-id').innerHTML = id;
+  let id = `ADVICE  #${
+    data.id
+  }`;
+  document.getElementById('advice-id').innerHTML = id
 
-  })
 
 }
